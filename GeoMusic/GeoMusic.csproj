@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A265A944-B67D-4242-925F-DB399173CC06}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GeoMusic</RootNamespace>
+    <AssemblyName>GeoMusic</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Costura, Version=1.6.2.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Costura.Fody.1.6.2\lib\dotnet\Costura.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sanford.Multimedia.Midi, Version=6.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sanford.Multimedia.Midi.6.6.0\lib\net20\Sanford.Multimedia.Midi.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\FileProcessor.cs" />
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FodyWeavers.xml" />
+    <EmbeddedResource Include="Notas\100-E7.jpg" />
+    <EmbeddedResource Include="Notas\101-F7.jpg" />
+    <EmbeddedResource Include="Notas\102-F#7.jpg" />
+    <EmbeddedResource Include="Notas\103-G7.jpg" />
+    <EmbeddedResource Include="Notas\104-G#7.jpg" />
+    <EmbeddedResource Include="Notas\105-A7.jpg" />
+    <EmbeddedResource Include="Notas\106-A#7.jpg" />
+    <EmbeddedResource Include="Notas\107-B7.jpg" />
+    <EmbeddedResource Include="Notas\108-C8.jpg" />
+    <EmbeddedResource Include="Notas\12-C0.jpg" />
+    <EmbeddedResource Include="Notas\13-C#0.jpg" />
+    <EmbeddedResource Include="Notas\14-D0.jpg" />
+    <EmbeddedResource Include="Notas\15-D#0.jpg" />
+    <EmbeddedResource Include="Notas\16-E0.jpg" />
+    <EmbeddedResource Include="Notas\17-F0.jpg" />
+    <EmbeddedResource Include="Notas\18-F#0.jpg" />
+    <EmbeddedResource Include="Notas\19-G0.jpg" />
+    <EmbeddedResource Include="Notas\20-G#0.jpg" />
+    <EmbeddedResource Include="Notas\21-A0.jpg" />
+    <EmbeddedResource Include="Notas\22-A#0.jpg" />
+    <EmbeddedResource Include="Notas\23-B0.jpg" />
+    <EmbeddedResource Include="Notas\24-C1.jpg" />
+    <EmbeddedResource Include="Notas\25-C#1.jpg" />
+    <EmbeddedResource Include="Notas\26-D1.jpg" />
+    <EmbeddedResource Include="Notas\27-D#1.jpg" />
+    <EmbeddedResource Include="Notas\28-E1.jpg" />
+    <EmbeddedResource Include="Notas\29-F1.jpg" />
+    <EmbeddedResource Include="Notas\30-F#1.jpg" />
+    <EmbeddedResource Include="Notas\31-G1.jpg" />
+    <EmbeddedResource Include="Notas\32-G#1.jpg" />
+    <EmbeddedResource Include="Notas\33-A1.jpg" />
+    <EmbeddedResource Include="Notas\34-A#1.jpg" />
+    <EmbeddedResource Include="Notas\35-B1.jpg" />
+    <EmbeddedResource Include="Notas\36-C2.jpg" />
+    <EmbeddedResource Include="Notas\37-C#2.jpg" />
+    <EmbeddedResource Include="Notas\38-D2.jpg" />
+    <EmbeddedResource Include="Notas\39-D#2.jpg" />
+    <EmbeddedResource Include="Notas\40-E2.jpg" />
+    <EmbeddedResource Include="Notas\41-F2.jpg" />
+    <EmbeddedResource Include="Notas\42-F#2.jpg" />
+    <EmbeddedResource Include="Notas\43-G2.jpg" />
+    <EmbeddedResource Include="Notas\44-G#2.jpg" />
+    <EmbeddedResource Include="Notas\45-A2.jpg" />
+    <EmbeddedResource Include="Notas\46-A#2.jpg" />
+    <EmbeddedResource Include="Notas\47-B2.jpg" />
+    <EmbeddedResource Include="Notas\48-C3.jpg" />
+    <EmbeddedResource Include="Notas\49-C#3.jpg" />
+    <EmbeddedResource Include="Notas\50-D3.jpg" />
+    <EmbeddedResource Include="Notas\51-D#3.jpg" />
+    <EmbeddedResource Include="Notas\52-E3.jpg" />
+    <EmbeddedResource Include="Notas\53-F3.jpg" />
+    <EmbeddedResource Include="Notas\54-F#3.jpg" />
+    <EmbeddedResource Include="Notas\55-G3.jpg" />
+    <EmbeddedResource Include="Notas\56-G#3.jpg" />
+    <EmbeddedResource Include="Notas\57-A3.jpg" />
+    <EmbeddedResource Include="Notas\58-A#3.jpg" />
+    <EmbeddedResource Include="Notas\59-B3.jpg" />
+    <EmbeddedResource Include="Notas\60-C4.jpg" />
+    <EmbeddedResource Include="Notas\61-C#4.jpg" />
+    <EmbeddedResource Include="Notas\62-D4.jpg" />
+    <EmbeddedResource Include="Notas\63-D#4.jpg" />
+    <EmbeddedResource Include="Notas\64-E4.jpg" />
+    <EmbeddedResource Include="Notas\65-F4.jpg" />
+    <EmbeddedResource Include="Notas\66-F#4.jpg" />
+    <EmbeddedResource Include="Notas\67-G4.jpg" />
+    <EmbeddedResource Include="Notas\68-G#4.jpg" />
+    <EmbeddedResource Include="Notas\69-A4.jpg" />
+    <EmbeddedResource Include="Notas\70-A#4.jpg" />
+    <EmbeddedResource Include="Notas\71-B4.jpg" />
+    <EmbeddedResource Include="Notas\72-C5.jpg" />
+    <EmbeddedResource Include="Notas\73-C#5.jpg" />
+    <EmbeddedResource Include="Notas\74-D5.jpg" />
+    <EmbeddedResource Include="Notas\75-D#5.jpg" />
+    <EmbeddedResource Include="Notas\76-E5.jpg" />
+    <EmbeddedResource Include="Notas\77-F5.jpg" />
+    <EmbeddedResource Include="Notas\78-F#5.jpg" />
+    <EmbeddedResource Include="Notas\79-G5.jpg" />
+    <EmbeddedResource Include="Notas\80-G#5.jpg" />
+    <EmbeddedResource Include="Notas\81-A5.jpg" />
+    <EmbeddedResource Include="Notas\82-A#5.jpg" />
+    <EmbeddedResource Include="Notas\83-B5.jpg" />
+    <EmbeddedResource Include="Notas\84-C6.jpg" />
+    <EmbeddedResource Include="Notas\85-C#6.jpg" />
+    <EmbeddedResource Include="Notas\86-D6.jpg" />
+    <EmbeddedResource Include="Notas\87-D#6.jpg" />
+    <EmbeddedResource Include="Notas\88-E6.jpg" />
+    <EmbeddedResource Include="Notas\89-F6.jpg" />
+    <EmbeddedResource Include="Notas\90-F#6.jpg" />
+    <EmbeddedResource Include="Notas\91-G6.jpg" />
+    <EmbeddedResource Include="Notas\92-G#6.jpg" />
+    <EmbeddedResource Include="Notas\93-A6.jpg" />
+    <EmbeddedResource Include="Notas\94-A#6.jpg" />
+    <EmbeddedResource Include="Notas\95-B6.jpg" />
+    <EmbeddedResource Include="Notas\96-C7.jpg" />
+    <EmbeddedResource Include="Notas\97-C#7.jpg" />
+    <EmbeddedResource Include="Notas\98-D7.jpg" />
+    <EmbeddedResource Include="Notas\99-D#7.jpg" />
+    <EmbeddedResource Include="Notas\Cover.jpg" />
+    <EmbeddedResource Include="Notas\Off.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Fody.2.0.0\build\dotnet\Fody.targets" Condition="Exists('..\packages\Fody.2.0.0\build\dotnet\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.2.0.0\build\dotnet\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.2.0.0\build\dotnet\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\Costura.Fody.1.6.2\build\dotnet\Costura.Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.1.6.2\build\dotnet\Costura.Fody.targets'))" />
+  </Target>
+  <Import Project="..\packages\Costura.Fody.1.6.2\build\dotnet\Costura.Fody.targets" Condition="Exists('..\packages\Costura.Fody.1.6.2\build\dotnet\Costura.Fody.targets')" />
+</Project>
