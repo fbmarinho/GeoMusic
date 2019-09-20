@@ -21,6 +21,7 @@ namespace GeoMusic
 
         private OutputDevice outDevice;
         private int outDeviceID = 0;
+        private int transpose = 0;
 
         public MainForm()
         {
@@ -42,6 +43,14 @@ namespace GeoMusic
             MidiLoaded = false;
             InstrumentLoaded = false;
             playing = false;
+
+            //Preenche Combobox de transposição
+            for (int i=-24;i<=24;i++)
+            {
+                TransSemitones.Items.Add(String.Concat(i.ToString(), " semitons"));
+            }
+            TransSemitones.SelectedIndex = 24;
+
 
             //Carregando Dispositivos MIDI
             if (OutputDevice.DeviceCount > 0)
@@ -170,14 +179,18 @@ namespace GeoMusic
 
             if (e.Message.Command == ChannelCommand.NoteOn)
             {
+                int tone = (e.Message.Data1 + transpose);
+                Console.WriteLine(tone.ToString());
+
                 if (InstrumentLoaded)
                 {
                     Console.WriteLine(e.Message.Data1.ToString());
-                    InstrumentoPreview.Image = Instrument[e.Message.Data1];
+
+                    InstrumentoPreview.Image = Instrument[tone];
                 }
                 else
                 {
-                    InstrumentoPreview.Image = GetImageResource(e.Message.Data1.ToString());
+                    InstrumentoPreview.Image = GetImageResource(tone.ToString());
                 }
             }
             if (NoteOffCb.Checked)
@@ -238,7 +251,8 @@ namespace GeoMusic
             DelayLabel.Text = tfDelay.Text;
             DelayLabel.Visible = true;
             DelayTimer.Start();
-
+            labelTransposicao.Visible = false;
+            TransSemitones.Visible = false;
         }
 
         private void Form_KeyDown(object sender, KeyEventArgs e)
@@ -246,11 +260,13 @@ namespace GeoMusic
             if (e.KeyData == Keys.Escape)
             {
                 InstrumentoPreview.Dock = DockStyle.None;
-                InstrumentoPreview.Location = new Point(14, 96);
+                InstrumentoPreview.Location = new Point(12, 128);
                 FormBorderStyle = FormBorderStyle.FixedDialog;
                 WindowState = FormWindowState.Normal;
                 DelayLabel.Visible = false;
                 DelayTimer.Stop();
+                labelTransposicao.Visible = true;
+                TransSemitones.Visible = true;
                 StopPlaying();
             }
 
@@ -338,6 +354,12 @@ namespace GeoMusic
                 throw;
             }
             
+        }
+
+        private void TransSemitones_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            transpose = TransSemitones.SelectedIndex - 24;
+            Console.WriteLine(transpose.ToString());
         }
     }
 }

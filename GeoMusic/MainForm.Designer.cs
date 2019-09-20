@@ -57,6 +57,8 @@ namespace GeoMusic
             this.DelayLabel = new System.Windows.Forms.Label();
             this.NoteOffCb = new System.Windows.Forms.CheckBox();
             this.DeviceSelect = new System.Windows.Forms.ComboBox();
+            this.labelTransposicao = new System.Windows.Forms.Label();
+            this.TransSemitones = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.InstrumentoPreview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDelay)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +72,7 @@ namespace GeoMusic
             // LoadMidiBtn
             // 
             this.LoadMidiBtn.Enabled = false;
-            this.LoadMidiBtn.Location = new System.Drawing.Point(12, 37);
+            this.LoadMidiBtn.Location = new System.Drawing.Point(12, 38);
             this.LoadMidiBtn.Name = "LoadMidiBtn";
             this.LoadMidiBtn.Size = new System.Drawing.Size(249, 23);
             this.LoadMidiBtn.TabIndex = 0;
@@ -80,7 +82,7 @@ namespace GeoMusic
             // 
             // CarregarInstrumentosBtn
             // 
-            this.CarregarInstrumentosBtn.Location = new System.Drawing.Point(12, 66);
+            this.CarregarInstrumentosBtn.Location = new System.Drawing.Point(12, 67);
             this.CarregarInstrumentosBtn.Name = "CarregarInstrumentosBtn";
             this.CarregarInstrumentosBtn.Size = new System.Drawing.Size(168, 24);
             this.CarregarInstrumentosBtn.TabIndex = 0;
@@ -97,7 +99,7 @@ namespace GeoMusic
             this.MidiPlayBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MidiPlayBtn.Enabled = false;
             this.MidiPlayBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MidiPlayBtn.Location = new System.Drawing.Point(15, 269);
+            this.MidiPlayBtn.Location = new System.Drawing.Point(13, 301);
             this.MidiPlayBtn.Name = "MidiPlayBtn";
             this.MidiPlayBtn.Size = new System.Drawing.Size(86, 23);
             this.MidiPlayBtn.TabIndex = 5;
@@ -108,7 +110,7 @@ namespace GeoMusic
             // InstrumentoPreview
             // 
             this.InstrumentoPreview.InitialImage = null;
-            this.InstrumentoPreview.Location = new System.Drawing.Point(14, 96);
+            this.InstrumentoPreview.Location = new System.Drawing.Point(12, 128);
             this.InstrumentoPreview.Name = "InstrumentoPreview";
             this.InstrumentoPreview.Size = new System.Drawing.Size(247, 165);
             this.InstrumentoPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -135,7 +137,7 @@ namespace GeoMusic
             // 
             // MidiStopBtn
             // 
-            this.MidiStopBtn.Location = new System.Drawing.Point(15, 270);
+            this.MidiStopBtn.Location = new System.Drawing.Point(14, 302);
             this.MidiStopBtn.Name = "MidiStopBtn";
             this.MidiStopBtn.Size = new System.Drawing.Size(86, 23);
             this.MidiStopBtn.TabIndex = 12;
@@ -146,7 +148,7 @@ namespace GeoMusic
             // FullScreenBtn
             // 
             this.FullScreenBtn.Enabled = false;
-            this.FullScreenBtn.Location = new System.Drawing.Point(186, 270);
+            this.FullScreenBtn.Location = new System.Drawing.Point(184, 302);
             this.FullScreenBtn.Name = "FullScreenBtn";
             this.FullScreenBtn.Size = new System.Drawing.Size(77, 23);
             this.FullScreenBtn.TabIndex = 13;
@@ -157,7 +159,7 @@ namespace GeoMusic
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(105, 275);
+            this.label1.Location = new System.Drawing.Point(103, 307);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 15;
@@ -165,7 +167,7 @@ namespace GeoMusic
             // 
             // tfDelay
             // 
-            this.tfDelay.Location = new System.Drawing.Point(140, 271);
+            this.tfDelay.Location = new System.Drawing.Point(138, 303);
             this.tfDelay.Name = "tfDelay";
             this.tfDelay.Size = new System.Drawing.Size(38, 20);
             this.tfDelay.TabIndex = 16;
@@ -192,7 +194,7 @@ namespace GeoMusic
             this.DelayLabel.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.DelayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DelayLabel.ForeColor = System.Drawing.Color.White;
-            this.DelayLabel.Location = new System.Drawing.Point(50, 116);
+            this.DelayLabel.Location = new System.Drawing.Point(48, 148);
             this.DelayLabel.Name = "DelayLabel";
             this.DelayLabel.Size = new System.Drawing.Size(172, 122);
             this.DelayLabel.TabIndex = 17;
@@ -203,7 +205,7 @@ namespace GeoMusic
             // NoteOffCb
             // 
             this.NoteOffCb.AutoSize = true;
-            this.NoteOffCb.Location = new System.Drawing.Point(189, 71);
+            this.NoteOffCb.Location = new System.Drawing.Point(187, 72);
             this.NoteOffCb.Name = "NoteOffCb";
             this.NoteOffCb.Size = new System.Drawing.Size(73, 17);
             this.NoteOffCb.TabIndex = 18;
@@ -220,11 +222,31 @@ namespace GeoMusic
             this.DeviceSelect.Text = "Selecione o Dispositivo";
             this.DeviceSelect.SelectedIndexChanged += new System.EventHandler(this.DeviceSelect_SelectedIndexChanged);
             // 
+            // labelTransposicao
+            // 
+            this.labelTransposicao.AutoSize = true;
+            this.labelTransposicao.Location = new System.Drawing.Point(12, 102);
+            this.labelTransposicao.Name = "labelTransposicao";
+            this.labelTransposicao.Size = new System.Drawing.Size(114, 13);
+            this.labelTransposicao.TabIndex = 20;
+            this.labelTransposicao.Text = "Fazer transposição de:";
+            // 
+            // TransSemitones
+            // 
+            this.TransSemitones.FormattingEnabled = true;
+            this.TransSemitones.Location = new System.Drawing.Point(132, 99);
+            this.TransSemitones.Name = "TransSemitones";
+            this.TransSemitones.Size = new System.Drawing.Size(127, 21);
+            this.TransSemitones.TabIndex = 22;
+            this.TransSemitones.SelectedIndexChanged += new System.EventHandler(this.TransSemitones_SelectedIndexChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(275, 305);
+            this.ClientSize = new System.Drawing.Size(275, 339);
+            this.Controls.Add(this.TransSemitones);
+            this.Controls.Add(this.labelTransposicao);
             this.Controls.Add(this.DelayLabel);
             this.Controls.Add(this.InstrumentoPreview);
             this.Controls.Add(this.DeviceSelect);
@@ -241,7 +263,7 @@ namespace GeoMusic
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "GeoMusic 2.1";
+            this.Text = "GeoMusic 2.5";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form_KeyDown);
@@ -275,5 +297,7 @@ namespace GeoMusic
         private Bitmap Cover;
         private CheckBox NoteOffCb;
         private ComboBox DeviceSelect;
+        private Label labelTransposicao;
+        private ComboBox TransSemitones;
     }
  }
